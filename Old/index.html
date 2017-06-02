@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Guest Lobby Join</title>
+
+<style>
+
+@-webkit-keyframes colorchange2
+    {
+      0%   {background: #181a34; opacity:.45}
+      100%  {background: #3b3e7a;  opacity:.6}
+    }
+
+#UI{
+			position:fixed;
+			top: 50%;
+			left: 50%;
+			margin-top: -450px;
+			margin-left: -800px;
+			opacity: 1
+
+}
+
+.animatedBG {
+		float: left;
+		margin: 0px;
+		width: 100%;
+		height: 1000px;
+		background-size: 1000%, 1000%;
+		animation: colorchange2 5s ease-in-out infinite alternate;
+		opacity:.65
+
+
+
+}
+
+#webcamBG{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top: -450px;
+	margin-left: -800px;
+	-webkit-filter: blur(125px);
+  -moz-filter: blur(125px);
+  -o-filter: blur(125px);
+  -ms-filter: blur(125px);
+  filter: blur(125px);
+	transform: scale(1.2);
+
+}
+
+#video{
+	position: absolute;
+	-webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
+	top: 50%;
+	left: 50%;
+	margin-top: -243px;
+	margin-left: -268px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	overflow: hidden;
+
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+
+	<div ID="webcamBG">
+		<video width="1600" height="900" autoplay loop>
+				 <source src="footage/Raymond.mp4" type="video/mp4" align"center">
+		</video>
+	</div>
+
+	<div class="animatedBG">
+	</div>
+
+	<div ID="UI">
+		<img src="Images/GuestLobbgUi-02.png" alt="UI" align="center" style="width:1600px;height:900px;">
+	</div>
+
+
+		<video ID = "video"></video>
+		<canvas ID="canvas"></canvas>
+		<button onClick="snap();">Snap<</button>
+		<script type="text/javadscript">
+			var video = document.getElementById('video';)
+			var canvas = document.getElementById('canvas');
+			var context = document.getElementById('2d');
+
+			navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia || navigator.msGetUserMedia;
+
+			if(navigator.getUserMedia){
+
+					navigator.getUserMedia({video:true}, streamWebCam, throwError);
+
+			}
+
+			function streamWebCam (stream){
+					video.src= window.URL.createObjectURl(stream);
+					video.play();
+			}
+
+			function throwError(e){
+				alert(e.name)
+			}
+
+			function snap(){
+
+				canvas.width=800;
+				canvas.height=800;
+				canvas.drawImabge(video,0,0);
+			}
+
+
+
+
+
+
+
+
+</body>
+</html>
