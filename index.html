@@ -8,8 +8,8 @@
 
 @-webkit-keyframes colorchange2
     {
-      0%   {background: #181a34; opacity:.45}
-      100%  {background: #3b3e7a;  opacity:.6}
+      0%   {background: #181a34; opacity:.7}
+      100%  {background: #3b3e7a;  opacity:.9}
     }
 
 #UI{
@@ -130,11 +130,11 @@ body{
 
     function streamWebCam (stream) {
       webCamBG.src = window.URL.createObjectURL(stream);
-      ds.src = window.URL.createObjectURL(stream);
+      //ds.src = window.URL.createObjectURL(stream);
       video.src = window.URL.createObjectURL(stream);
-      //video.play();
-      ds.play();
-      //webCamBG.play();
+      video.play();
+      //ds.play();
+      webCamBG.play();
     }
 
     function throwError (e) {
