@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Guest Lobby Join</title>
+<title>Guest Lobby Join Prototype</title>
 
 <style>
 
@@ -37,8 +37,7 @@ body{
 		background-size: 100%, 100%;
     background: #3b3e7a;
     #opacity: .65;
-		animation: colorchange2 4s ease-in-out infinite alternate
-
+		animation: colorchange2 4s ease-in-out infinite alternate;
 }
 
 #webcamBG{
@@ -54,8 +53,6 @@ body{
   filter: blur(85px);
 	transform: scale(1.2);
   opacity: .8;
-
-
 }
 
 #video{
@@ -71,27 +68,6 @@ body{
 	//-moz-border-radius: 5px;
 	overflow: hidden;
   opacity: 1;
-
-}
-
-#ds{
-	position: fixed;
-  clip: rect(0px,1000px,315px,0px);
-	-webkit-mask-image: -webkit-radial-gradient(circle, white 100%, black 100%);
-	top: 50%;
-	left: 50%;
-	margin-top: -248px;
-	margin-left: -380px;
-  -webkit-filter: blur(15px);
-  -moz-filter: blur(125px);
-  -o-filter: blur(125px);
-  -ms-filter: blur(125px);
-  filter: blur(125px);
-	overflow: hidden;
-  opacity: .5;
-
-
-
 }
 
 </style>
@@ -100,15 +76,12 @@ body{
 
 <body>
 
-
   <video id= "webcamBG" width="1600" height="900"></video>
   <div class="animatedBG">
   </div>
   <div ID="UI">
 		<img src="Images/GuestLobbgUi-02.png" align="center" style="width:1600px;height:900px;">
 	</div>
-
-  <video id="ds" width="760" height="410"></video>
 
   <video id="video" width="736" height="400"></video>
 
@@ -127,9 +100,6 @@ body{
       navigator.getUserMedia({video:true, webCamBG: true}, streamWebCam, throwError);
     }
 
-
-
-
     function streamWebCam (stream) {
       webCamBG.src = window.URL.createObjectURL(stream);
       video.src = window.URL.createObjectURL(stream);
@@ -142,9 +112,6 @@ body{
     }
 
   </script>
-
-
-
 
 </body>
 </html>
